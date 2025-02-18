@@ -3,18 +3,19 @@ const router = express.Router();
 
 import AuthController from '../controllers/AuthController';
 import JwtMiddleware from '../auth/JwtMiddleware';
-import ONGsController from '../controllers/ONGsController';
+import RouteWalkController from '../controllers/RouteWalkController';
 
 // Rotas de autenticação
 router.post('/signUp', AuthController.signUp);
 router.post('/login', AuthController.signIn);
 // router.get('/infoUser', AuthController.dataToken);
-router.get('/ongs', ONGsController.GetAll);
-router.get('/ongs/:id', ONGsController.GetById);
-router.post('/ongs/donation', ONGsController.PostDonation);
+router.get('/routes', RouteWalkController.GetAll);
+router.get('/routes/:emailUser', RouteWalkController.GetRoutesByUser);
+router.get('/routes/id/:id', RouteWalkController.GetRoutesById);
+router.post('/routes', RouteWalkController.SaveRoute);
+router.delete('/routes', RouteWalkController.DeleteRoute);
 
 router.get('/infoUser/:userID', AuthController.infoUser);
-router.get('/ongDonations/:userID', ONGsController.GetDonationOng);
 
 // Rota de teste
 router.get('/', (req, res) => {

@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { TypeUserData, TypeUserDataDB } from '../@types/userData';
-import Role from '../models/ProductsDonated';
+import Role from '../models/RouteWalk';
 // import getRoleById from '../utils/GetRoleByID';
 
 class AuthController {
